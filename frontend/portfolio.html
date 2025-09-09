@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: linear-gradient(to right, #f9f9f9, #e0f7fa);
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, #c261ff, #00ff66);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #00695c;
+      animation: fadeIn 1.5s ease;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #004d40;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    section:target {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeInUp 1s ease;
+    }
+    .projects, .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      background: linear-gradient(135deg, #ffffff, #f1f8e9);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: linear-gradient(135deg, #2196f3, #3f51b5);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #333;
+      border-bottom: 3px solid #ff6f61;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #00695c;
+    }
+    p {
+      color: #444;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>krishnanjali</h1>
+    <p>Student | Learner</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am a Computer Science student passionate about web development, coding, and problem-solving. I love learning new technologies and working on creative projects.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">HTML & CSS</div>
+      <div class="card">JavaScript</div>
+      <div class="card">Python</div>
+      <div class="card">C Programming</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/c0b13e6659629.56027c9435d35.jpg" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A simple C program to manage books and student records.</p>
+      </div>
+      <div class="card">
+        <img src = "https://tse4.mm.bing.net/th/id/OIP.7dGK1TLnBRCbip9D1iEaQAHaEl?pid=Api&P=0&h=180" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>A simple C program to calculate student grades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> 234g1a3369@srit.ac.in</p>
+    <p><strong>Location:</strong> ATP , India</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 krishnanjali. All rights reserved.</p>
+  </footer>
+</body>
+</html>

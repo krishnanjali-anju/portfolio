@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portfolio</title>
+  <style>
+    :root {
+      --primary: #af4ca2;   /* Green */
+      --accent: #22ffe2;    /* Orange */
+      --bg: #f9f9f9;        /* Light background */
+      --card-bg: #fff;
+      --text: #222;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Header */
+    header {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { margin: 0; font-size: 2.2rem; }
+    header p { margin: 0.5rem 0 1rem; font-size: 1.1rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      color: var(--primary);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+    }
+    .skill-card:hover {
+      transform: scale(1.05);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      min-height: 400px;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-img { height: 150px; object-fit: cover; width: 100%; }
+    .project-content { padding: 1rem; flex: 1; }
+    .project-title { font-weight: bold; color: var(--primary); }
+    .project-desc { color: #444; font-size: 0.95rem; margin: 0.5rem 0; }
+    .project-link {
+      text-decoration: none; color: var(--accent);
+      font-weight: bold; transition: color 0.3s;
+    }
+    .project-link:hover { color: var(--primary); }
+
+    /* About */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .about-img {
+      flex: 1 1 180px;
+      max-width: 180px;
+      margin-right: 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .about-img img { width: 100%; display: block; }
+    .about-text { flex: 2 1 300px; }
+
+    /* Contact */
+    .contact form {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      margin: auto;
+    }
+    .contact input, .contact textarea {
+      width: 100%; padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    .contact button {
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .contact button:hover { background: var(--accent); }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .about { flex-direction: column; text-align: center; }
+      .about-img { margin: 0 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Krishnanjali</h1>
+    <p>Computer Science Student</p>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">C Programming</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <img class="project-img" src="https://ecdn.teacherspayteachers.com/thumbitem/Student-Portfolio-Using-Google-Sites-9521784-1683713250/original-9521784-1.jpg" alt="Project 1">
+          <div class="project-content">
+            <div class="project-title">Student Portfolio</div>
+            <div class="project-desc">A personal portfolio website showcasing my skills and projects.</div>
+            <a class="project-link" href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img class="project-img" src="https://www.edusys.co/images/library.png" alt="Project 2">
+          <div class="project-content">
+            <div class="project-title">Library Management System</div>
+            <div class="project-desc">A simple C program to manage books and student records.</div>
+            <a class="project-link" href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="about-img">
+        <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="krishnanjali">
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          Hi, I'm krishnanjali, a Computer Science student with a passion for coding and problem-solving.  
+          I enjoy learning new technologies, building projects, and working towards becoming a software engineer.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2024 krishnanjali | student portfolio
+  </footer>
+
+</body>
+</html>
+
+
