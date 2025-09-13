@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f4f4f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #joke-box {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 500px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #setup {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #punchline {
+      font-size: 16px;
+      color: #555;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😂 Random Joke Generator</h1>
+
+  <div id="joke-box">
+    <div id="setup">Click "Get Joke" to start!</div>
+    <div id="punchline"></div>
+    <div id="error"></div>
+  </div>
+
+  <button id="getJokeBtn">Get Joke</button>
+  <button id="nextJokeBtn">Next Joke</button>
+
+  <script>
+    // Function: Fetches and returns joke JSON
+    async function getJoke() {
+      try {
+        const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return await response.json();
+      } catch (error) {
+        return null; // return null if fetch fails
+      }
+    }
+
+    // Function: Updates DOM with joke
+    function displayJoke(joke) {
+      const setupDiv = document.getElementById("setup");
+      const punchlineDiv = document.getElementById("punchline");
+      const errorDiv = document.getElementById("error");
+
+      if (joke) {
+        setupDiv.textContent = joke.setup;
+        punchlineDiv.textContent = joke.punchline;
+        errorDiv.textContent = "";
+      } else {
+        setupDiv.textContent = "";
+        punchlineDiv.textContent = "";
+        errorDiv.textContent = "Couldn’t fetch a joke, try again!";
+      }
+    }
+
+    // Handle button clicks
+    document.getElementById("getJokeBtn").addEventListener("click", async () => {
+      const joke = await getJoke();
+      displayJoke(joke);
+    });
+
+    document.getElementById("nextJokeBtn").addEventListener("click", async () => {
+      const joke = await getJoke();
+      displayJoke(joke);
+    });
+  </script>
+
+</body>
+</html>
